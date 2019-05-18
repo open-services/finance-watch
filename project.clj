@@ -7,6 +7,7 @@
                  [clj-http "3.10.0"]
                  [org.clojure/data.json "0.2.6"]
                  [iapetos "0.1.8"]
+                 [io.prometheus/simpleclient_hotspot "0.6.0"]
                  [http-kit "2.3.0"]]
   :main ^:skip-aot finance-watch.core
   :target-path "target/%s"

@@ -3,11 +3,13 @@
             [clojure.data.json :refer [read-str]]
             [iapetos.core :as prometheus]
             [iapetos.export :as export]
+            [iapetos.collector.jvm :as jvm]
             [org.httpkit.server :refer [run-server]])
   (:gen-class))
 
 (defonce registry
   (-> (prometheus/collector-registry)
+      (jvm/initialize)
       (prometheus/register
         ;; TODO currently hardcoded to open-registry
         (prometheus/gauge :open-registry/balance)
