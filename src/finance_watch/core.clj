@@ -45,6 +45,8 @@
 
 (defn update-metrics [collective]
   (let [res (get-metrics collective)]
+    (println "Updating metrics")
+    (println res)
     (-> registry
         (set-metric :balance res)
         (set-metric :yearly-income res)
@@ -56,18 +58,19 @@
    :headers {"Content-Type" "text/plain; charset=UTF-8"}
    :body (export/text-format registry)})
 
-(defn watch-collective [collective]
+(defn watch-collective [collective update-interval]
   (future
     (while true
       (update-metrics collective)
-      (Thread/sleep (* 1000 60)))))
+      (Thread/sleep (* 1000 update-interval)))))
 
 (def address (str (or (System/getenv "ADDRESS") "127.0.0.1")))
 (def port (Integer/parseInt (or (System/getenv "PORT") "8080")))
+(def update-interval (Integer/parseInt (or (System/getenv "UPDATE_INTERVAL") "60")))
 
 (defn -main
   [& args]
-  (watch-collective "open-registry")
+  (watch-collective "open-registry" update-interval)
   (println "Now watching collective open-registry")
   (println (format "Starting server at %s:%s" address port))
   (run-server app {:address address
