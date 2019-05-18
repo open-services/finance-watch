@@ -1,4 +1,4 @@
-(defproject finance-watch "0.1.0-SNAPSHOT"
+(defproject finance-watch "0.1.1-SNAPSHOT"
   :description "Gathers metrics about finances and exposes it as prometheus metrics"
   :url "https://github.com/open-services/finance-watch"
   :license {:name "MIT"

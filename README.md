@@ -8,7 +8,7 @@ Gathers metrics about finances and exposes it as prometheus metrics
 Run the application with `lein run` or compile to a jar with `lein uberjar` and then run:
 
 ```
-$ java -jar target/uberjar/finance-watch-0.1.0-SNAPSHOT-standalone.jar
+$ java -jar target/uberjar/finance-watch-0.1.1-SNAPSHOT-standalone.jar
 ```
 
 ## Options
@@ -19,7 +19,7 @@ You can set the `address` and `port` by setting the env vars `ADDRESS` and `PORT
 
 
 ```
-$ java -jar target/uberjar/finance-watch-0.1.0-SNAPSHOT-standalone.jar
+$ java -jar target/uberjar/finance-watch-0.1.1-SNAPSHOT-standalone.jar
 Now watching collective open-registry
 Starting server at 127.0.0.1:8080
 ```
